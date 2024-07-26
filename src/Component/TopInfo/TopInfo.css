@@ -1,0 +1,33 @@
+body{
+    color:white;
+}
+.topinfo-container{
+    width: 100vw;
+    height: 100%;
+    margin: auto;
+    padding: 10px 20px;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.conatct{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.contact-text{
+    margin-left: 20px;
+}
+.contact-icon{
+    color: yellow !important;
+    font-size: 20px;
+}
+
+
+@media (max-width:480px){
+    .contact-text{
+        margin-left: 10px;
+    }
+}
