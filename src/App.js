@@ -1,29 +1,30 @@
-import "./App.css";
-import { Fragment } from "react";
-import { Routes, Route } from "react-router-dom";
-// import TopInfo from "./Component/TopInfo/TopInfo";
-// import Navbar from "./Component/Navbar/Navbar";
-import Home from "./Component/Home/Home";
-import About from "./Component/About/About";
-import Service from "./Component/Service/Service";
-import Contact from "./Component/Contact/Contact";
-import { Testimonial } from "./Component/Testmonial/Testimonial";
-// import { Combinedcomponent } from "./Component/Combinedcomponent";
+import React, { Suspense } from 'react';
+// import PreLoader from "./Component/PreLoader/PreLoader.jsx";
+import {Routes,Route} from "react-router-dom"
+import Navbar from "./Component/Navbar/Navbar"
+import './Component/Global.css'
+
+// const Home = React.lazy(()=> import('./Component/Home/Header.js'))
+// import Services from "./Component/Services/Services"
+// import About from "./Component/About/About"
+// import Blog from "./Component/Blog/Blog"
+// import Contact from "./Component/Contact/Contact"
 
 function App() {
+  
   return (
-    <Fragment>
-      {/* <TopInfo /> */}
-      {/* <Navbar /> */}
-      <Routes>
-        <Route path="/" element={<Home /> } />
-        <Route path="/about" element={<About />} />
-        <Route path="/service" element={<Service />} />
-        <Route path="/testmonial" element={<Testimonial/>}/>
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-      {/* <Combinedcomponent/> */}
-    </Fragment>
+    <>  
+      <Navbar/>
+      <Suspense>
+        <Routes>
+          {/* <Route to="/" element={<Home/>}/> */}
+          {/* <Route to="/about" element={<About/>}/> */}
+          {/* <Route to="/services" element={<Services/>}/> */}
+          {/* <Route to="/blog" element={<Blog/>}/> */}
+          {/* <Route to="/contact" element={<Contact/>}/> */}
+        </Routes>
+      </Suspense>
+    </>
   );
 }
 
