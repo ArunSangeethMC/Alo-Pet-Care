@@ -1,25 +1,28 @@
 import React from "react";
 // import preLoader from "./PreLoader.module.css";
-import { useState, CSSProperties } from "react";
+import { useState,useEffect } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
-const override: CSSProperties = {
+const override = {
   display: "block",
   margin: "0 auto",
   borderColor: "red",
 };
 
 function PreLoader() {
-  let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#ffffff");
+  let [loading, setLoading] = useState(false);
+  // let [color, setColor] = useState("#ffffff");
+
+  useEffect(()=>{
+    setLoading(true)
+    setTimeout(()=>{
+      setLoading(false)
+    },5000)
+  },[])
 
   return (
     <div className="sweet-loading">
-      <button onClick={() => setLoading(!loading)}>Toggle Loader</button>
-      <input value={color} onChange={(input) => setColor(input.target.value)} placeholder="Color of the loader" />
-
       <ClipLoader
-        color={color}
         loading={loading}
         cssOverride={override}
         size={150}

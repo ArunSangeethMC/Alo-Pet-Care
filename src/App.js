@@ -1,29 +1,29 @@
-import React, { Suspense } from 'react';
-// import PreLoader from "./Component/PreLoader/PreLoader.jsx";
+import React,{Suspense} from 'react';
+import PreLoader from "./Component/PreLoader/PreLoader.jsx";
 import {Routes,Route} from "react-router-dom"
 import Navbar from "./Component/Navbar/Navbar"
 import './Component/Global.css'
+import './App.css'
 
-// const Home = React.lazy(()=> import('./Component/Home/Header.js'))
-// import Services from "./Component/Services/Services"
-// import About from "./Component/About/About"
-// import Blog from "./Component/Blog/Blog"
-// import Contact from "./Component/Contact/Contact"
+import Services from "./Component/Services/Services";
+import About from "./Component/About/About";
+import Blog from "./Component/Blog/Blog";
+import Contact from "./Component/Contact/Contact";
+const Home = React.lazy(()=> import('./Component/Home/Header.js'));
 
 function App() {
   
   return (
-    <>  
-      <Navbar/>
-      <Suspense>
+    <> 
+        <Navbar/>
         <Routes>
-          {/* <Route to="/" element={<Home/>}/> */}
-          {/* <Route to="/about" element={<About/>}/> */}
-          {/* <Route to="/services" element={<Services/>}/> */}
-          {/* <Route to="/blog" element={<Blog/>}/> */}
-          {/* <Route to="/contact" element={<Contact/>}/> */}
+          <Route path="/" element={<Suspense fallback={<PreLoader/>}><Home/></Suspense>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/services" element={<Services/>}/>
+          <Route path="/blog" element={<Blog/>}/>
+          <Route path="/contact" element={<Contact/>}/>
         </Routes>
-      </Suspense>
+      
     </>
   );
 }
