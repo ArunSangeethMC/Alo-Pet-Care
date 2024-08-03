@@ -1,29 +1,22 @@
 import React from "react";
 // import preLoader from "./PreLoader.module.css";
-import { useState,useEffect } from "react";
+// import { useState,useEffect } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const override = {
-  display: "block",
-  margin: "0 auto",
+  display: "flex",
+  margin: "300px auto 0 auto",
   borderColor: "red",
 };
 
 function PreLoader() {
-  let [loading, setLoading] = useState(false);
+  // let [loading, setLoading] = useState(false);
   // let [color, setColor] = useState("#ffffff");
-
-  useEffect(()=>{
-    setLoading(true)
-    setTimeout(()=>{
-      setLoading(false)
-    },5000)
-  },[])
 
   return (
     <div className="sweet-loading">
       <ClipLoader
-        loading={loading}
+        // loading={loading}
         cssOverride={override}
         size={150}
         aria-label="Loading Spinner"
